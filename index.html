@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lib/fontawesome-free-5.4.1-web/css/all.min.css">
+    <link rel="stylesheet" href="css/main-style.css">
+    <title>Meme-Me</title>
+</head>
+
+<body onload="init()">
+
+    <header class="flex wrap justify-start">
+        <h1>Meme-Me</h1>
+        <h2>Get your face on a meme!</h2>
+
+        <nav class="main-nav">
+            <span>Search: </span>
+            <input list="filters" name="filters" oninput="onSetFilter(this.value)" >
+            <datalist id="filters">
+                <option value="all" data-trans="filter-all">all</option>
+                <option value="happy" data-trans="filter-all">happy</option>
+                <option value="crazy" data-trans="filter-all">crazy</option>
+                <option value="sarcastic" data-trans="filter-all">sarcastic</option>
+                <option value="sad" data-trans="filter-all">sad</option>
+                <option value="animal" data-trans="filter-all">animals</option>
+                <option value="cute" data-trans="filter-all">cute</option>
+            </datalist>
+        </nav>
+    </header>
+
+    <button class="about" onclick="openAboutUs()">About us</button>
+    <main class="content-container flex wrap">
+
+    </main>
+
+
+
+    <div class="imgModal-wrapper flex wrap justify-center align-center" onclick="closeModal()">
+        <div class="modalContent" onclick="modalContentClicked(event)">
+            <div class="modalHeader">
+                <button class="close-modal-btn" onclick="closeModal()">Close</button>
+            </div>
+
+            <div class="modalBody flex wrap">
+
+                <div class="modalImg">
+
+                </div>
+                <div class="text-container flex justify-center wrap align-center">
+
+                    <input class="text-line" placeholder="Enter text here" type="text" oninput="onWriteText(this.value)">
+
+                    <div class="textToolbar flex justify-center align-center">
+                        <a onclick="downloadCanvas(this)" href="#" class="flex align-center">Download</a>
+
+
+                        <button onclick="deleteText()" class="delete"><i class="far fa-trash-alt"></i></button>
+                        <input id="input-color" type="color" value="#ffffff" onchange="onColorChange(this.value)">
+                        <button onclick="onChangeFontSize('+')">+</button>
+                        <button onclick="onChangeFontSize('-')">-</button>
+                        <span class="fonts-btn flex justify-center" onclick="onFontBtnClick()">
+                            <i class="fas fa-font"></i>
+                            <ul class="font-list">
+                                <li onclick="onFontSelect('Arial', this)">Arial</li>
+                                <li onclick="onFontSelect('David', this)">David</li>
+                                <li onclick="onFontSelect('Verdana', this)">Verdana</li>
+                                <li onclick="onFontSelect('Impact', this)">Impact (Default)</li>
+                            </ul>
+                        </span>
+
+
+                        <button onclick="toggleShadow()"><i class="fas fa-highlighter on-off"></i></button>
+
+                        <div class="alignText flex">
+                            <button value="right" onclick="alignText(this.value)"><i class="fas fa-align-left"></i></button>
+                            <button value="center" onclick="alignText(this.value)"><i class="fas fa-align-center"></i></button>
+                            <button value="left" onclick="alignText(this.value)"><i class="fas fa-align-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="about-us flex justify-between align-center">
+        <button class="close-about-btn" onclick="closeAboutUs()">Close</button>
+        <div class="meital grid">
+            <div class="about-us-img">
+                <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t1.0-9/12670385_10207506115349666_9208209897226808112_n.jpg?_nc_cat=102&_nc_ht=scontent.ftlv1-1.fna&oh=f94180f185d7a24e81d860693021d482&oe=5C4A0989" />
+            </div>
+            <div class="title">
+                <h3 class="fullname">Meital Konon Pinhas</h3>
+                <h4 class="slogan">שכה יהיה לי טוב</h4>
+            </div>
+            <p>We need to type some more stuff to fill this div so... <br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni
+                molestiae quae repellat placeat voluptas debitis assumenda culpa nostrum adipisci officia, perferendis
+                laboriosam nisi blanditiis officiis quas? Voluptatibus veritatis aperiam ex! Lorem ipsum dolor sit,
+                amet consectetur adipisicing elit. Officia necessitatibus at repellendus perferendis, omnis eos
+                reprehenderit porro cupiditate fugit itaque ex reiciendis eum odio ipsa illo soluta, suscipit animi
+                sed.</p>
+            </div>
+            <div class="bar grid">
+                <div class="about-us-img">
+                        <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t1.0-9/27858075_10215491700555198_7744759545590598587_n.jpg?_nc_cat=108&_nc_ht=scontent.ftlv1-1.fna&oh=a6bf396edde2fb609835f70ec78dab8b&oe=5C540738" >
+            </div>
+            <div class="title">
+                <h3 class="fullname">Bar Peled</h3>
+                <h4 class="slogan">שמישהו יפתור אותי מהקנבס</h4>
+            </div>
+            <p>Latin dance instructor, likes languages, music and culture <br>
+                Don't like this canvas' behaviour<br><br>
+                We need to type some more stuff to fill this div so... <br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatem, laudantium possimus
+                necessitatibus qui facere rem eius ipsum hic aperiam similique suscipit. Quis provident similique
+                exercitationem omnis accusantium, et vel.</p>
+        </div>
+    
+        
+        <div class="send-email-container">
+                <span class="open-contact-span">Send us a message!</span>
+
+            <div class="contact-form grid">
+                    <input type="text" id="contact-name" placeholder="Name">                    
+                
+                <br>
+                <input type="text" id="contact-content" placeholder="Enter your message">
+                <button class="submit-contact-btn" onclick="onSubmitContact()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils-service.js"></script>
+    <script src="js/modal-service.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

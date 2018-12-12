@@ -1,0 +1,64 @@
+/* Main */
+
+/* main content */
+
+@import url('../css/_header.css');
+@import url('../css/_main_content.css');
+@import url('../css/_helpers.css');
+@import url('../css/_img_modal.css');
+@import url('../css/beehive.css');
+@import url('../css/_about_us.css');
+
+/* reset default settings */
+* {
+    box-sizing: border-box;
+}
+html {
+    font-size: 12px;
+}
+
+body, html {
+    margin: 0;
+}
+
+body {
+    background-color: white;
+    /* background-position:  */
+    overflow-x: hidden;
+}
+
+img {
+    
+    max-width: 300px;
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+@media (min-width: 695px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+
+
+
